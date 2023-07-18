@@ -1,0 +1,39 @@
+spring:
+  devtools:
+    livereload:
+      enabled: true
+
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: SAMPLE
+    password: 1234
+    url: jdbc:mariadb://np.sionms.co.kr:3306/springboot_db
+  jpa:
+    show-sql: true
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: 710b67d002e4fb606557
+            client-secret: 87285dbb746bd9008f1116d8a69b49a2e9d1d088
+            redirect-uri: "{baseUrl}/oauth2/callback/{registrationId}"
+            scope:
+              - user:email
+              - read:user
+          google:
+            client-id: 185414255887-map1fo7egdjeskh8t45ihbitpk1bd0gl.apps.googleusercontent.com
+            client-secret: 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
+            redirect-uri: "{baseUrl}/oauth2/callback/{registrationId}"
+            scope:
+              - email
+              - profile
+        provider:
+          github:
+            authorization-uri: https://github.com/login/oauth/authorize
+            token-uri: https://github.com/login/oauth/access_token
+            user-info-uri: https://api.github.com/user
+logging:
+  level:
+    root: info
+    sql: debug
